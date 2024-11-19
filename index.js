@@ -1,5 +1,5 @@
 const listaPokemon = document.querySelector('#listaPokemon');
-const botonesHeader = document.querySelector('.btn-header');
+const botonesHeader = document.querySelectorAll('.btn-header');
 let pokemons = [];
 let url = 'https://pokeapi.co/api/v2/pokemon/';
 
@@ -50,7 +50,7 @@ const mostrarPokemon=(poke)=>{
 
 botonesHeader.forEach( boton => boton.addEventListener("click",(event)=>{
     const botonId = event.currentTarget.id;
-    listaPokemon.innerHtml="";
+    listaPokemon.innerHTML=" ";
     for(let i = 0; i<pokemons.length;i++){
         if(botonId === "ver-todos"){
             mostrarPokemon(pokemons[i])
@@ -61,8 +61,6 @@ botonesHeader.forEach( boton => boton.addEventListener("click",(event)=>{
             }
         }
     }
-})
-
-)
+}))
 
 cargaPokemon();
