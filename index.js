@@ -47,3 +47,22 @@ const mostrarPokemon=(poke)=>{
     `;
     listaPokemon.append(cuadroPokemon);
 }
+
+botonesHeader.forEach( boton => boton.addEventListener("click",(event)=>{
+    const botonId = event.currentTarget.id;
+    listaPokemon.innerHtml="";
+    for(let i = 0; i<pokemons.length;i++){
+        if(botonId === "ver-todos"){
+            mostrarPokemon(pokemons[i])
+        }else{
+            const tipos = pokemons[i].types.map((type)=> type.type.name);
+            if(tipos.some(tipo=> tipo.includes(botonId))){
+                mostrarPokemon(pokemons[i])
+            }
+        }
+    }
+})
+
+)
+
+cargaPokemon();
